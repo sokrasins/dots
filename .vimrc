@@ -54,11 +54,17 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" Set yank buffer to system clipboard
+set clipboard=unnamedplus
+
 " Set leader character
 let mapleader = ","
 
-", Load NERDTree on launch
-autocmd VimEnter * :NERDTree
+" Map ,nt to nerdtree
+nmap <leader>nt :NERDTree<cr>
+
+" Set highlighting of the line that contains the cursor
+set cursorline
 
 " Force 256 color mode
 set t_Co=256
@@ -69,6 +75,11 @@ set splitright
 " Set syntax and background
 syntax enable
 
+set list
+set listchars=tab:▸\ ",eol:¬
+
+set expandtab
+set smarttab
 
 " Turn on line numbers
 set number  
@@ -102,10 +113,10 @@ set winminwidth=30
 " colorscheme firewatch
 
 " Set Predawn color theme
-colorscheme predawn
+" colorscheme predawn
 
 " Set wombat color theme
-" colorscheme wombat256mod 
+colorscheme wombat256mod 
 
 " Set solarized color theme
 " let g:solarized_termcolors=256
@@ -117,6 +128,9 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 nnoremap <C-h> <C-W>h
+
+" map Ctrl-c to copy to clipboard buffer
+vnoremap <C-c> "*y
 
 " lightline: set fancy characters
 " font patcher and instructions: https://github.com/Lokaltog/vim-powerline/tree/develop/fontpatcher
